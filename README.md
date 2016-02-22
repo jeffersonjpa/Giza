@@ -7,7 +7,7 @@ The first project in history is the building of The Great Pyramid of Giza. For t
 The Pharaohs built the pyramids and today archaeologists still argue about how they achieved this feat. Ancient records show there were managers for each of the four faces of the Great Pyramid, responsible for overseeing their completion. We know there was some degree of planning, execution and control involved in managing this project.
 
 Planned Features<br/>
-Some of the main planned features of Giza are:<br/><br/>
+Some of the main planned features of Giza are:<br/>
 
 Multiple projects support<br/>
 Flexible role based access control<br/>
@@ -25,7 +25,4 @@ User self-registration support<br/>
 Multilanguage support<br/>
 Multiple databases support<br/>
 <br/>
-<br/>
 Font: https://www.projectsmart.co.uk/brief-history-of-project-management.php
-
-
