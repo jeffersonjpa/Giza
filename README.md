@@ -9,7 +9,7 @@ The Pharaohs built the pyramids and today archaeologists still argue about how t
 Planned Features
 Some of the main planned features of Giza are:
 
-Multiple projects support
+Multiple projects support<br/>
 Flexible role based access control
 Flexible issue tracking system
 Gantt chart and calendar
