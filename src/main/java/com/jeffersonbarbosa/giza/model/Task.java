@@ -1,15 +1,11 @@
 package com.jeffersonbarbosa.giza.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
 public class Task extends EntityModel {
 	
-//	@Id
-//    @GeneratedValue
-//	private Long id;
+	private static final long serialVersionUID = -5062943860771417317L;
 	private String name;
 	private String description;
 	

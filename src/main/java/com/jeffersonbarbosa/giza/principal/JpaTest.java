@@ -1,60 +1,39 @@
 package com.jeffersonbarbosa.giza.principal;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
+import com.jeffersonbarbosa.giza.model.Project;
 import com.jeffersonbarbosa.giza.model.Task;
-import com.jeffersonbarbosa.giza.persistence.dao.TaskDao;
+import com.jeffersonbarbosa.giza.model.UserModel;
+import com.jeffersonbarbosa.giza.persistence.implementation.ProjectDao;
+import com.jeffersonbarbosa.giza.persistence.interfaces.IProjectDao;
 
 public class JpaTest {
-	
-	private EntityManager manager;
-	
-	public JpaTest(EntityManager manager) {
-		this.manager = manager;
-	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		
-		TaskDao dao = new TaskDao();
+		IProjectDao<Project> dao = new ProjectDao();
 		
-		Task task = new Task("Sistema Giza", "Desenvolvimento do Sistema Giza.");
+		UserModel jefferson = new UserModel();
+		jefferson.setName("Jefferson Barbosa");
 		
-		dao.persist(task);
+		Task task1 = new Task("Casamento Projet", "Desenvolver o Termo de Abertura do Projeto.");
 		
-//		JpaTest test = new JpaTest(manager);
+		Project projectUpdate = (Project) dao.findById(new Long(39));
 		
-//		EntityTransaction tx = manager.getTransaction();
-//		tx.begin();
-//		try {
-//			test.createTask();
-//			test.listTasks();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		tx.commit();
+		projectUpdate.setName("Now is my project.");
+		
+		projectUpdate.setOwner(jefferson);
+		
+		Set<Task> tasks = new HashSet<Task>();
+		tasks.add(task1);
+		
+		projectUpdate.setTasks(tasks);
+		
+		dao.update(projectUpdate);
 	}
-
-//	private void createTask() {
-//		manager.persist();
-//	}
-	
-//	private void delete(Task task) {
-//		manager.remove(task);
-//	}
-
-//	private void listTasks() {
-//		List<Task> resultList = manager.createQuery("Select a From Task a", Task.class).getResultList();
-//		System.out.println("num of tasks:" + resultList.size());
-//		for (Task task : resultList) {
-//			System.out.println("next task: " + task);
-//		}
-//	}
-
 }

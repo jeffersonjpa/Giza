@@ -1,13 +1,14 @@
-package com.jeffersonbarbosa.giza.persistence.dao;
+package com.jeffersonbarbosa.giza.persistence.implementation;
 
 import java.lang.reflect.ParameterizedType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
 
-public abstract class JpaDao<Task> implements Dao<Task> {
+import com.jeffersonbarbosa.giza.persistence.dao.Dao;
+
+public abstract class JpaGenericDao<Task> implements Dao<Task> {
 	
 	public static final String PERSISTENCE_UNIT_NAME = "giza-project";
 	
@@ -17,8 +18,8 @@ public abstract class JpaDao<Task> implements Dao<Task> {
 	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("giza-project");
 	protected EntityManager entityManager = factory.createEntityManager();
 	
-//	public JpaDao() {
-//		ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
-//		this.entityClass = (Class) genericSuperclass.getActualTypeArguments()[1];
-//	}
+	public JpaGenericDao() {
+		ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
+		this.entityClass = (Class) genericSuperclass.getActualTypeArguments()[0];
+	}
 }

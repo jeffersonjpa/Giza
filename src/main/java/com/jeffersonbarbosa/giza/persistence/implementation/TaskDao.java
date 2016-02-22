@@ -1,4 +1,4 @@
-package com.jeffersonbarbosa.giza.persistence.dao;
+package com.jeffersonbarbosa.giza.persistence.implementation;
 
 import java.util.Date;
 import java.util.List;
@@ -7,13 +7,14 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
 
 import com.jeffersonbarbosa.giza.model.Task;
+import com.jeffersonbarbosa.giza.persistence.interfaces.ITaskDao;
 
-public class TaskDao extends JpaDao<Task> implements ITaskDao<Task> {
+public class TaskDao extends JpaGenericDao<Task> implements ITaskDao<Task> {
 	
 	public List<Task> findOrdersSubmittedSince(Date date) {
 		Query q = entityManager.createQuery("SELECT e FROM " + entityClass.getName() + " e WHERE date >= :date_since");
 		q.setParameter("date_since", date);
-		return (List) q.getResultList();
+		return q.getResultList();
 	}
 
 	public void persist(Task task) {
@@ -65,5 +66,10 @@ public class TaskDao extends JpaDao<Task> implements ITaskDao<Task> {
 	public Task findById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void update(Task entity) {
+		// TODO Auto-generated method stub
+		
 	}
 }

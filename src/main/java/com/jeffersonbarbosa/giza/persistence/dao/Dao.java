@@ -5,4 +5,5 @@ public interface Dao<E> {
       void remove(E entity);
       void removeById(Long id);
       E findById(Long id);
+      void update(E entity);
 }
