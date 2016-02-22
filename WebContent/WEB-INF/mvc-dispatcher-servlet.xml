@@ -8,12 +8,12 @@
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan base-package="com.mkyong.controller" />
+	<context:component-scan base-package="com.jeffersonbarbosa.giza.controller" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
-			<value>/WEB-INF/pages/</value>
+			<value>/WEB-INF/views/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>
